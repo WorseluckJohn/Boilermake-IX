@@ -33,13 +33,25 @@ public class GameManager : MonoBehaviour
 
     void startPlanter()
     {
-        if(tractorScript.count == 6)
+        if(tractorScript.count == 3)
         {
             //planter.SetActive(true);
             //cam1st.transform.parent = planter.transform;
-            Destroy(tractor);
-            Destroy(planter);
+            resetPlanter();
             tractorScript.count++;
+
         }
+
+        if (tractorScript.count == 7)
+        {
+            
+        }
+    }
+
+    void resetPlanter()
+    {
+        tractor.transform.position = tractorScript.startPos;
+        tractor.transform.RotateAround(tractor.transform.position, tractor.transform.up, 180f);
+        tractorScript.toggle = !tractorScript.toggle;
     }
 }
